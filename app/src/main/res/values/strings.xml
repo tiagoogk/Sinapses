@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Sinapses</string>
+    <string name="appAbout">Sobre App</string>
+    <string name="appAboutText">Aplicativo desenvolvido durante o estágio curricular da Informática Biomédica</string>
+    <string name="lipecinAbout">Sobre LIPECIN</string>
+    <string name="lipecinAboutText">Descrição sobre o LIPECIN</string>
+</resources>
