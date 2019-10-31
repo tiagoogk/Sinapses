@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.View;
+import android.widget.Button;
 
 public class ContentActivity extends Activity {
+
+    private Button btnClose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +23,15 @@ public class ContentActivity extends Activity {
         int w = dm.widthPixels;
         int h = dm.widthPixels;
 
-        getWindow().setLayout((int) (w*.8), (int)(h*.8));
+        getWindow().setLayout((int) (w*.9), (int)(h*1.5));
+
+        btnClose = findViewById(R.id.btnCloseContent);
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               finish();
+            }
+        });
 
     }
 }

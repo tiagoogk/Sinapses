@@ -32,6 +32,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
         TextView abstractText;
         Button buttonText;
 
+
         public MyViewHolder(View view, final OnItemClickListener listener){
             super(view);
             this.titleText=view.findViewById(R.id.textTitleCard);
