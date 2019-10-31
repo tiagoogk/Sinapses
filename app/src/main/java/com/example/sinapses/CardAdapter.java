@@ -7,8 +7,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.content.Intent;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -16,19 +14,42 @@ import java.util.ArrayList;
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
 
     private ArrayList<CardModel> dataSet;
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener {
+        void onClickText(int listPosition);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
+
+
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         TextView titleText;
         ImageView imageCard;
         TextView abstractText;
-//        Button buttonText;
+        Button buttonText;
 
-        public MyViewHolder(View view){
+        public MyViewHolder(View view, final OnItemClickListener listener){
             super(view);
             this.titleText=view.findViewById(R.id.textTitleCard);
             this.imageCard=view.findViewById(R.id.imageCard);
             this.abstractText=view.findViewById(R.id.textAbstractCard);
-//            this.buttonText=view.findViewById(R.id.btnFullText);
+            this.buttonText=view.findViewById(R.id.btnFullText);
+
+            buttonText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null){
+                        int listPosition = getAdapterPosition();
+                        if (listPosition != RecyclerView.NO_POSITION){
+                            listener.onClickText(listPosition);
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -42,13 +63,13 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.cards_layout, parent, false);
 
-        view.setOnClickListener(MainActivity.myOnClickListener);
+//        view.setOnClickListener(MainActivity.myOnClickListener);
 
-        MyViewHolder myViewHolder = new MyViewHolder(view);
+        MyViewHolder myViewHolder = new MyViewHolder(view, mListener);
         return myViewHolder;
     }
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, final int listPosition) {
+    public void onBindViewHolder(final MyViewHolder holder, int listPosition) {
 
         TextView textTitleHolder = holder.titleText;
         ImageView imageCardHolder = holder.imageCard;

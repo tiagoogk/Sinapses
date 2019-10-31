@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
 
 
@@ -18,11 +19,12 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static RecyclerView.Adapter adapter;
+    private RecyclerView recyclerView;
+    private CardAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private static RecyclerView recyclerView;
-    private static ArrayList<CardModel> card;
+    private ArrayList<CardModel> card;
     static View.OnClickListener myOnClickListener;
+    private Button btnText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,18 @@ public class MainActivity extends AppCompatActivity {
         adapter = new CardAdapter(card);
         recyclerView.setAdapter(adapter);
 
+        adapter.setOnItemClickListener(new CardAdapter.OnItemClickListener() {
+
+            @Override
+            public void onClickText(int listPosition) {
+                openText(listPosition);
+            }
+        });
+    }
+
+    public void openText(int position){
+        Intent i = new Intent(this, ContentActivity.class);
+        startActivity(i);
 
     }
     @Override
