@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class ContentActivity extends Activity {
 
     private Button btnClose;
+    private TextView moreContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,8 @@ public class ContentActivity extends Activity {
                finish();
             }
         });
+
+        moreContent =findViewById(R.id.textViewMore);
 
     }
 }

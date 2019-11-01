@@ -8,11 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 import java.util.ArrayList;
@@ -24,12 +26,13 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<CardModel> card;
     static View.OnClickListener myOnClickListener;
-    private Button btnText;
+    private int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -39,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         card = new ArrayList<CardModel>();
-        for (int i = 0; i < CardData.titleArray.length; i++) {
+        for (i = 0; i < CardData.titleArray.length; i++) {
             card.add(new CardModel(
                     CardData.titleArray[i],
                     CardData.drawablesArray[i],
@@ -62,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openText(int position){
-        Intent i = new Intent(this, ContentActivity.class);
-        startActivity(i);
+        Intent intent = new Intent(this, ContentActivity.class);
+        startActivity(intent);
 
     }
     @Override

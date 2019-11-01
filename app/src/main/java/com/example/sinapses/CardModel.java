@@ -4,9 +4,9 @@ public class CardModel {
     private String title;
     private int image;
     private int abstractText;
-    private int id_;
+    private String id_;
 
-    public CardModel(String title, int image, int abstractText, int id_) {
+    public CardModel(String title, int image, int abstractText, String id_) {
         this.title = title;
         this.image = image;
         this.abstractText = abstractText;
@@ -25,7 +25,7 @@ public class CardModel {
         return abstractText;
     }
 
-    public int getId_() {
+    public String getId_() {
         return id_;
     }
 

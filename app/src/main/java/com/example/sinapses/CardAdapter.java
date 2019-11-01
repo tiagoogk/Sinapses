@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.content.Intent;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -32,6 +31,9 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
         TextView abstractText;
         Button buttonText;
 
+        TextView titleMoreText;
+        TextView moreContent;
+
 
         public MyViewHolder(View view, final OnItemClickListener listener){
             super(view);
@@ -39,6 +41,9 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
             this.imageCard=view.findViewById(R.id.imageCard);
             this.abstractText=view.findViewById(R.id.textAbstractCard);
             this.buttonText=view.findViewById(R.id.btnFullText);
+
+            this.titleMoreText=view.findViewById(R.id.textViewContent);
+            this.moreContent=view.findViewById(R.id.textViewMore);
 
             buttonText.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -79,6 +84,12 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
         textTitleHolder.setText(dataSet.get(listPosition).getTitle());
         imageCardHolder.setImageResource(dataSet.get(listPosition).getImage());
         abstractTextHolder.setText(dataSet.get(listPosition).getAbstractText());
+
+//        TextView titleMoreHolder = holder.titleMoreText;
+//        TextView moreContentHolder = holder.moreContent;
+
+//        titleMoreHolder.setText(dataSet.get(listPosition).getTitle());
+//        moreContentHolder.setText(dataSet.get(listPosition).getId_());
     }
 
     @Override
