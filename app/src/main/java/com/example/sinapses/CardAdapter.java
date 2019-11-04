@@ -85,11 +85,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
         imageCardHolder.setImageResource(dataSet.get(listPosition).getImage());
         abstractTextHolder.setText(dataSet.get(listPosition).getAbstractText());
 
-//        TextView titleMoreHolder = holder.titleMoreText;
-//        TextView moreContentHolder = holder.moreContent;
-
-//        titleMoreHolder.setText(dataSet.get(listPosition).getTitle());
-//        moreContentHolder.setText(dataSet.get(listPosition).getId_());
     }
 
     @Override

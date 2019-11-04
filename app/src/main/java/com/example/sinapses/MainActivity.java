@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<CardModel> card;
     static View.OnClickListener myOnClickListener;
     private int i;
+    private String titleString;
+    private String contentString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,17 +44,20 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         card = new ArrayList<CardModel>();
-        for (i = 0; i < CardData.titleArray.length; i++) {
+        for (i = 0; i < CardData.id_.length; i++) {
             card.add(new CardModel(
                     CardData.titleArray[i],
                     CardData.drawablesArray[i],
                     CardData.abstractArray[i],
-                    CardData.id_[i]
+                    CardData.id_[i],
+                    CardData.content[i]
             ));
         }
 
         adapter = new CardAdapter(card);
         recyclerView.setAdapter(adapter);
+
+        adapter.notifyDataSetChanged();
 
         adapter.setOnItemClickListener(new CardAdapter.OnItemClickListener() {
 
@@ -66,7 +71,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void openText(int position){
         Intent intent = new Intent(this, ContentActivity.class);
+        titleString = CardData.titleArray[position];
+        contentString = CardData.content[position];
+        intent.putExtra("TITLE_KEY", titleString);
+        intent.putExtra("CONTENT_KEY", contentString);
         startActivity(intent);
+
 
     }
     @Override

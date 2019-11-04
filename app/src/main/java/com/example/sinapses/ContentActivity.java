@@ -1,6 +1,7 @@
 package com.example.sinapses;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,10 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class ContentActivity extends Activity {
 
     private Button btnClose;
-    private TextView moreContent;
+    private ArrayList<CardModel> dataSet;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +39,13 @@ public class ContentActivity extends Activity {
             }
         });
 
-        moreContent =findViewById(R.id.textViewMore);
+        TextView moreTitle = findViewById(R.id.textViewContent);
+        String tS = getIntent().getStringExtra("TITLE_KEY");
+        moreTitle.setText(tS);
+
+        TextView moreContent = findViewById(R.id.textViewMore);
+        String cM = getIntent().getStringExtra("CONTENT_KEY");
+        moreContent.setText(cM);
 
     }
 }
