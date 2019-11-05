@@ -6,16 +6,14 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.DownloadManager;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.Button;
-import android.widget.TextView;
-
 
 import java.util.ArrayList;
 
@@ -30,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
     private String titleString;
     private String contentString;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -59,11 +57,18 @@ public class MainActivity extends AppCompatActivity {
 
         adapter.notifyDataSetChanged();
 
+
+
         adapter.setOnItemClickListener(new CardAdapter.OnItemClickListener() {
 
             @Override
             public void onClickText(int listPosition) {
                 openText(listPosition);
+            }
+
+            @Override
+            public void onClickDownload(int listPosition) {
+                downloadFile(listPosition);
             }
 
         });
@@ -77,8 +82,20 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("CONTENT_KEY", contentString);
         startActivity(intent);
 
+    }
+
+    public void downloadFile(int position){
+        String uri = "https://lipecin.org/img/logos/lipecin_fav.png";
+        DownloadManager dm = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+        DownloadManager.Request req = new DownloadManager.Request(Uri.parse(uri));
+        req.setTitle("Download");
+        req.setDescription("Baixando STL");
+        req.allowScanningByMediaScanner();
+        req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
+        dm.enqueue(req);
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);

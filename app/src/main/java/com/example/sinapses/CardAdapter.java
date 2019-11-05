@@ -17,6 +17,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
 
     public interface OnItemClickListener {
         void onClickText(int listPosition);
+        void onClickDownload(int listPosition);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -30,6 +31,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
         ImageView imageCard;
         TextView abstractText;
         Button buttonText;
+        Button buttonDownload;
 
         TextView titleMoreText;
         TextView moreContent;
@@ -41,6 +43,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
             this.imageCard=view.findViewById(R.id.imageCard);
             this.abstractText=view.findViewById(R.id.textAbstractCard);
             this.buttonText=view.findViewById(R.id.btnFullText);
+            this.buttonDownload=view.findViewById(R.id.btnDownloadSLT);
 
             this.titleMoreText=view.findViewById(R.id.textViewContent);
             this.moreContent=view.findViewById(R.id.textViewMore);
@@ -52,6 +55,18 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
                         int listPosition = getAdapterPosition();
                         if (listPosition != RecyclerView.NO_POSITION){
                             listener.onClickText(listPosition);
+                        }
+                    }
+                }
+            });
+
+            buttonDownload.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int listPosition = getAdapterPosition();
+                        if (listPosition != RecyclerView.NO_POSITION){
+                            listener.onClickDownload(listPosition);
                         }
                     }
                 }

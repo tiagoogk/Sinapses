@@ -9,17 +9,20 @@
 
     <Button
         android:id="@+id/btnCloseContent"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="39dp"
         android:layout_height="34dp"
         android:layout_gravity="right"
-        android:text="X" />
+        android:outlineProvider="none"
+        android:text="X"
+        android:textSize="15dp" />
 
     <TextView
         android:id="@+id/textViewContent"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:layout_gravity="center"
-        android:text="sdasdasdasdasd"
+        android:text="Lorem Ipsum"
         android:textSize="26sp"
         android:textColor="@color/textPrimary"
         android:textAlignment="center"/>
@@ -29,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:text="asfgadfgfdgsdfdsdf"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam commodo sed sem sed auctor. Nam tristique magna non magna pulvinar hendrerit. Mauris at dapibus nulla. Cras porttitor lorem at dui bibendum, id faucibus nisi sollicitudin. Vestibulum sollicitudin turpis vitae dolor elementum elementum. Nulla feugiat quam ac metus tristique, vel sollicitudin."
         android:textIsSelectable="false"
         android:textSize="16sp"
         android:textColor="@color/textPrimary"

@@ -29,7 +29,7 @@ public class ContentActivity extends Activity {
         int w = dm.widthPixels;
         int h = dm.widthPixels;
 
-        getWindow().setLayout((int) (w*.9), (int)(h*1.5));
+        getWindow().setLayout((int) (w*.9), (int)(h*1.57));
 
         btnClose = findViewById(R.id.btnCloseContent);
         btnClose.setOnClickListener(new View.OnClickListener() {
