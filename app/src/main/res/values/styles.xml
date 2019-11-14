@@ -8,5 +8,14 @@
 
     </style>
 
+    <style name="AppTheme.ButtonStandard" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/colorPrimaryLight</item>
+        <item name="android:textColor">@color/textPrimary</item>
+    </style>
+
+    <style name="AppTheme.CustomTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
 
 </resources>

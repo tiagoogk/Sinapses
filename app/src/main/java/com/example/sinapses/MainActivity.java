@@ -8,12 +8,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -23,10 +26,9 @@ public class MainActivity extends AppCompatActivity {
     private CardAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<CardModel> card;
-    static View.OnClickListener myOnClickListener;
     private int i;
-    private String titleString;
-    private String contentString;
+    private String titleString, contentString, uri;
+    private Snackbar snack;
 
 
     @Override
@@ -57,8 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
         adapter.notifyDataSetChanged();
 
-
-
         adapter.setOnItemClickListener(new CardAdapter.OnItemClickListener() {
 
             @Override
@@ -85,15 +85,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void downloadFile(int position){
-        String uri = "https://lipecin.org/img/logos/lipecin_fav.png";
-        DownloadManager dm = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-        DownloadManager.Request req = new DownloadManager.Request(Uri.parse(uri));
-        req.setTitle("Download");
-        req.setDescription("Baixando STL");
-        req.allowScanningByMediaScanner();
-        req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
-        dm.enqueue(req);
+        uri = CardData.file[position];
 
+        if (uri == ""){
+            snack = Snackbar.make(recyclerView, "Arquivo não disponível", Snackbar.LENGTH_SHORT);
+            snack.show();
+
+        }else {
+            DownloadManager dm = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+            DownloadManager.Request req = new DownloadManager.Request(Uri.parse(uri));
+            req.setTitle("Download");
+            req.setDescription("Baixando STL");
+            req.allowScanningByMediaScanner();
+            req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
+            dm.enqueue(req);
+
+        }
     }
 
     @Override
@@ -111,19 +118,33 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (item.getItemId()){
             case R.id.itemAboutApp:
-                AlertDialog.Builder alertApp = new AlertDialog.Builder(this);
-                alertApp.setTitle(R.string.appAbout)
-                        .setMessage(R.string.appAboutText);
+                AlertDialog.Builder builderAlertApp = new AlertDialog.Builder(this);
+                builderAlertApp.setTitle(R.string.appAbout)
+                .setMessage(R.string.appAboutText)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
 //                        .setIcon(R.drawable.logo_menu);
+                AlertDialog alertApp = builderAlertApp.create();
                 alertApp.show();
                 break;
 
             case R.id.itemAboutLIPECIN:
-                AlertDialog.Builder alertMetodo = new AlertDialog.Builder(this);
-                alertMetodo.setTitle(R.string.lipecinAbout)
-                        .setMessage(R.string.lipecinAboutText);
+                AlertDialog.Builder builderAlertLIPECIN = new AlertDialog.Builder(this);
+                builderAlertLIPECIN.setTitle(R.string.lipecinAbout)
+                        .setMessage(R.string.lipecinAboutText)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
 //                        .setIcon(R.drawable.logo_menu);
-                alertMetodo.show();
+                AlertDialog alertLIPECIN = builderAlertLIPECIN.create();
+                alertLIPECIN.show();
                 break;
         }
 

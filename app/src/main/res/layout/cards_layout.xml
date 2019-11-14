@@ -9,11 +9,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
-        android:layout_width="374dp"
+        android:layout_width="384dp"
         android:layout_height="382dp"
         android:layout_gravity="center"
         android:animateLayoutChanges="false"
-        card_view:cardBackgroundColor="@color/colorPrimaryLight"
+        card_view:cardBackgroundColor="@color/colorPrimary"
         card_view:cardCornerRadius="4dp"
         card_view:cardElevation="1dp"
         card_view:cardUseCompatPadding="true">
@@ -58,33 +58,22 @@
 
                 <Button
                     android:id="@+id/btnFullText"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:textColor="@color/textPrimary"
                     android:textSize="12dp"
-                    android:drawableLeft="@drawable/ic_remove_red_eye"
+                    android:drawableLeft="@drawable/ic_remove_red_eye_black_24dp"
                     android:layout_width="112dp"
                     android:layout_height="50dp"
-                    android:text="Abrir Texto"/>
-
-                <Button
-                    android:id="@+id/btnVisualize3D"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="12dp"
-                    android:drawableLeft="@drawable/ic_cloud_download"
-                    android:layout_width="112dp"
-                    android:layout_height="50dp"
-                    android:text="abrir modelo" />
+                    android:text="Abrir Texto"
+                    style="@style/AppTheme.ButtonStandard"
+                    />
 
                 <Button
                     android:id="@+id/btnDownloadSLT"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="10dp"
-                    android:drawableLeft="@drawable/ic_cloud_download"
+                    style="@style/AppTheme.ButtonStandard"
                     android:layout_width="112dp"
                     android:layout_height="50dp"
-                    android:text="Dowload STL" />
+                    android:drawableLeft="@drawable/ic_cloud_download_black_24dp"
+                    android:text="Dowload STL"
+                    android:textSize="10dp" />
             </LinearLayout>
 
         </LinearLayout>

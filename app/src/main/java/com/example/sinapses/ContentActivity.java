@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +30,7 @@ public class ContentActivity extends Activity {
         int w = dm.widthPixels;
         int h = dm.widthPixels;
 
-        getWindow().setLayout((int) (w*.9), (int)(h*1.57));
+        getWindow().setLayout((int) (w*.9), (int)(h*1.5));
 
         btnClose = findViewById(R.id.btnCloseContent);
         btnClose.setOnClickListener(new View.OnClickListener() {
