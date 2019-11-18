@@ -94,10 +94,10 @@ public class MainActivity extends AppCompatActivity {
         }else {
             DownloadManager dm = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
             DownloadManager.Request req = new DownloadManager.Request(Uri.parse(uri));
-            req.setTitle("Download");
+            req.setTitle(CardData.titleArray[position]);
             req.setDescription("Baixando STL");
             req.allowScanningByMediaScanner();
-            req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
+            req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
             dm.enqueue(req);
 
         }
