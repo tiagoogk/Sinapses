@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="384dp"
-        android:layout_height="382dp"
+        android:layout_height="460dp"
         android:layout_gravity="center"
         android:animateLayoutChanges="false"
         card_view:cardBackgroundColor="@color/colorPrimary"
@@ -27,17 +27,18 @@
             <TextView
                 android:id="@+id/textTitleCard"
                 android:layout_width="match_parent"
-                android:layout_height="68dp"
+                android:layout_height="97dp"
                 android:fontFamily="roboto"
                 android:gravity="center"
                 android:padding="2dp"
                 android:textColor="@color/textPrimary"
-                android:textSize="40sp" />
+                android:textSize="36sp" />
 
             <ImageView
                 android:id="@+id/imageCard"
+                android:layout_marginTop="2dp"
                 android:layout_width="match_parent"
-                android:layout_height="190dp"
+                android:layout_height="203dp"
                 android:contentDescription='"Imagem do conteúdo"'
                 android:scaleType="fitXY"
                 tools:ignore="HardcodedText" />
@@ -45,11 +46,11 @@
             <TextView
                 android:id="@+id/textAbstractCard"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="88dp"
                 android:paddingLeft="16dp"
                 android:paddingTop="8dp"
                 android:paddingRight="16dp"
-                android:paddingBottom="8dp"/>
+                android:paddingBottom="8dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

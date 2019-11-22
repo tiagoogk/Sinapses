@@ -14,15 +14,16 @@
 
         <TextView
             android:id="@+id/textViewContent"
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:background="@color/colorSecondary"
-            android:gravity="start"
+            android:gravity="center"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="26sp" />
+            android:textSize="26sp"
+            android:text="saod"/>
 
         <Button
             android:id="@+id/btnCloseContent"
@@ -39,18 +40,29 @@
 
     <TextView
         android:id="@+id/textViewMore"
-        android:background="@color/colorSecondaryLight"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="528dp"
         android:layout_gravity="center"
-        android:justificationMode="inter_word"
-        android:textColor="@color/textSecondary"
-        android:textIsSelectable="true"
+        android:background="@drawable/border"
         android:enabled="true"
         android:focusable="true"
+        android:justificationMode="inter_word"
         android:longClickable="true"
-        android:textSize="16sp"
+        android:padding="2dp"
+        android:textColor="@color/textSecondary"
+        android:textIsSelectable="true"
+        android:textSize="16sp" />
 
-        android:padding="2dp"/>
+    <TextView
+        android:id="@+id/textReferences"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/border"
+        android:longClickable="true"
+        android:padding="2dp"
+        android:textColor="@color/textSecondary"
+        android:textIsSelectable="true"
+        android:textSize="16sp" />
+
 
 </LinearLayout>

@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         card = new ArrayList<CardModel>();
-        for (i = 0; i < CardData.id_.length; i++) {
+        for (i = 0; i < CardData.titleArray.length; i++) {
             card.add(new CardModel(
                     CardData.titleArray[i],
                     CardData.drawablesArray[i],
