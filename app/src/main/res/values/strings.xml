@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">Sinapses</string>
-    <string name="appAbout">Sobre App</string>
+    <string name="appAbout">App</string>
     <string name="appAboutText">Aplicativo desenvolvido durante o estágio curricular da Informática Biomédica</string>
-    <string name="lipecinAbout">Sobre LIPECIN</string>
+    <string name="lipecinAbout">LIPECIN</string>
     <string name="lipecinAboutText">Descrição sobre o LIPECIN</string>
+    <string name="title_activity_bottom">BottomActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_notes">NotesActivity</string>
+    <string name="loremIpsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+
+
 </resources>

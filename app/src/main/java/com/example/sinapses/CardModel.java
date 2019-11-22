@@ -4,10 +4,10 @@ public class CardModel {
     private String title;
     private int image;
     private int abstractText;
-    private String id_;
-    private String content;
+    private int id_;
+    private int content;
 
-    public CardModel(String title, int image, int abstractText, String id_, String content) {
+    public CardModel(String title, int image, int abstractText, int id_, int content) {
         this.title = title;
         this.image = image;
         this.abstractText = abstractText;
@@ -27,11 +27,10 @@ public class CardModel {
         return abstractText;
     }
 
-    public String getId_() {
+    public int getId_() {
         return id_;
     }
 
-    public String getContent() {
-        return content;
+    public int getContent() { return content;
     }
 }

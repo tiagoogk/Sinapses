@@ -1,11 +1,5 @@
 package com.example.sinapses;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,7 +8,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -26,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private CardAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<CardModel> card;
-    private int i;
-    private String titleString, contentString, uri;
+    private int i,contentString;
+    private String titleString, uri;
     private Snackbar snack;
 
 
