@@ -6,13 +6,15 @@ public class CardModel {
     private int abstractText;
     private int id_;
     private int content;
+    private int reference;
 
-    public CardModel(String title, int image, int abstractText, int id_, int content) {
+    public CardModel(String title, int image, int abstractText, int id_, int content, int reference) {
         this.title = title;
         this.image = image;
         this.abstractText = abstractText;
         this.id_=id_;
         this.content=content;
+        this.reference=reference;
     }
 
     public String getTitle() {
@@ -31,6 +33,7 @@ public class CardModel {
         return id_;
     }
 
-    public int getContent() { return content;
-    }
+    public int getContent() { return content; }
+
+    public int getReference() { return reference; }
 }

@@ -35,6 +35,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
 
         TextView titleMoreText;
         TextView moreContent;
+        TextView moreReference;
 
 
         public MyViewHolder(View view, final OnItemClickListener listener){
@@ -47,6 +48,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder>{
 
             this.titleMoreText=view.findViewById(R.id.textViewContent);
             this.moreContent=view.findViewById(R.id.textViewMore);
+            this.moreReference=view.findViewById(R.id.textReferences);
 
             buttonText.setOnClickListener(new View.OnClickListener() {
                 @Override

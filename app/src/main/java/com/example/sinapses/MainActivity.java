@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private CardAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<CardModel> card;
-    private int i,contentString;
-    private String titleString, uri;
+    private int i;
+    private String titleString, uri, contentString, textReference;
     private Snackbar snack;
 
 
@@ -43,13 +43,14 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         card = new ArrayList<CardModel>();
-        for (i = 0; i < CardData.titleArray.length; i++) {
+        for (i = 0; i < CardData.id_.length; i++) {
             card.add(new CardModel(
                     CardData.titleArray[i],
                     CardData.drawablesArray[i],
                     CardData.abstractArray[i],
                     CardData.id_[i],
-                    CardData.content[i]
+                    CardData.content[i],
+                    CardData.reference[i]
             ));
         }
 
@@ -76,9 +77,11 @@ public class MainActivity extends AppCompatActivity {
     public void openText(int position){
         Intent intent = new Intent(this, ContentActivity.class);
         titleString = CardData.titleArray[position];
-        contentString = CardData.content[position];
+        contentString = getString(CardData.content[position]);
+        textReference = getString(CardData.reference[position]);
         intent.putExtra("TITLE_KEY", titleString);
         intent.putExtra("CONTENT_KEY", contentString);
+        intent.putExtra("REFERENCE_KEY", textReference);
         startActivity(intent);
 
     }

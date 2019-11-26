@@ -1,11 +1,7 @@
 package com.example.sinapses;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +43,10 @@ public class ContentActivity extends Activity {
         TextView moreContent = findViewById(R.id.textViewMore);
         String cM = getIntent().getStringExtra("CONTENT_KEY");
         moreContent.setText(cM);
+
+        TextView moreReference = findViewById(R.id.textReferences);
+        String mR = getIntent().getStringExtra("REFERENCE_KEY");
+        moreReference.setText(mR);
 
     }
 }
